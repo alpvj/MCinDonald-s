@@ -21,7 +21,7 @@ public class MCin_Donalds {
 		this.hamburguers = new NegociosHamburguers(repHamburguers);
 		this.bebidas = new NegociosBebidas(repBebidas);
 		this.pessoas = new NegociosPessoas(repPessoas);
-		
+
 	}
 
 	// Negocio Sobremesas
@@ -142,117 +142,111 @@ public class MCin_Donalds {
 			throw new BebidaInexistenteException();
 		}
 	}
-	
+
 	// Negocio CafeManha
 
-		public CafeManha procurarCafeManha(String nome_cafemanha) throws CafeDaManhaInexistenteException {
-			return cafeManha.procurarCafeManha(nome_cafemanha);
-		}
+	public CafeManha procurarCafeManha(String nome_cafemanha) throws CafeDaManhaInexistenteException {
+		return cafeManha.procurarCafeManha(nome_cafemanha);
+	}
 
-		public boolean verificarCafeManha(String nome_cafemanha) {
-			return cafeManha.verificarCafeManha(nome_cafemanha);
-		}
+	public boolean verificarCafeManha(String nome_cafemanha) {
+		return cafeManha.verificarCafeManha(nome_cafemanha);
+	}
 
-		public void adicionarCafeManha(CafeManha cafemanha) throws CafeDaManhaJaExisteException {
-			cafeManha.adicionarCafeManha(cafemanha);
-		}
+	public void adicionarCafeManha(CafeManha cafemanha) throws CafeDaManhaJaExisteException {
+		cafeManha.adicionarCafeManha(cafemanha);
+	}
 
-		public void removerCafeManha(String nome_cafemanha) throws CafeDaManhaInexistenteException {
-			cafeManha.removerCafeManha(nome_cafemanha);
-		}
+	public void removerCafeManha(String nome_cafemanha) throws CafeDaManhaInexistenteException {
+		cafeManha.removerCafeManha(nome_cafemanha);
+	}
 
-		public void atualizarNome(String nome_Antigo, String nome_Novo)
-				throws CafeDaManhaInexistenteException, CafeDaManhaJaExisteException {
-			cafeManha.atualizarNome(nome_Antigo, nome_Novo);
-		}
+	public void atualizarNome(String nome_Antigo, String nome_Novo)
+			throws CafeDaManhaInexistenteException, CafeDaManhaJaExisteException {
+		cafeManha.atualizarNome(nome_Antigo, nome_Novo);
+	}
 
-		public void atualizarPreco(String nome, double preco) throws CafeDaManhaInexistenteException {
-			cafeManha.atualizarPreco(nome, preco);
-		}
+	public void atualizarPreco(String nome, double preco) throws CafeDaManhaInexistenteException {
+		cafeManha.atualizarPreco(nome, preco);
+	}
 
-		public void atualizarCafeManha(String nome, CafeManha cafemanha)
-				throws CafeDaManhaInexistenteException, CafeDaManhaJaExisteException {
-			cafeManha.atualizarCafeManha(nome, cafemanha);
-		}
+	public void atualizarCafeManha(String nome, CafeManha cafemanha)
+			throws CafeDaManhaInexistenteException, CafeDaManhaJaExisteException {
+		cafeManha.atualizarCafeManha(nome, cafemanha);
+	}
 
-		
-		// Negocio Pessoas
-		public void inserir(Cliente pessoa) throws PessoaJaCadastradaException, PessoaNaoCadastradaExeception, CPFInvalidoException {
-			if(pessoa.getCpf().length() != 11) {
-				throw new CPFInvalidoException();
-			}
-			else {
-				this.pessoas.inserir(pessoa);
-			}
+	// Negocio Pessoas
+	
+	public void inserir(Cliente pessoa)
+			throws PessoaJaCadastradaException, PessoaNaoCadastradaExeception, CPFInvalidoException {
+		if (pessoa.getCpf().length() != 11) {
+			throw new CPFInvalidoException();
+		} else {
+			this.pessoas.inserir(pessoa);
 		}
-		
-		public void inserir(Funcionario pessoa) throws PessoaJaCadastradaException, PessoaNaoCadastradaExeception, GerenteJaExistenteException, CPFInvalidoException {
-			if(pessoa.getCpf().length() != 11) {
-				throw new CPFInvalidoException();
-			}
-			else if(this.pessoas.getGerenteState()) {
-				throw new GerenteJaExistenteException();
-			}
-			else {
-				this.pessoas.inserir(pessoa);
-			}
-		}
-		
-		public void removerCliente(String cpf) throws PessoaNaoCadastradaExeception, CPFInvalidoException {
-			if(cpf.length() != 11) {
-				throw new CPFInvalidoException();
-			}
-			else {
-				this.pessoas.removerCliente(cpf);
-			}
-		}
-		
-		public void removerFuncionario(String cpf) throws PessoaNaoCadastradaExeception, CPFInvalidoException {
-			if(cpf.length() != 11) {
-				throw new CPFInvalidoException();
-			}
-			else {
-				this.pessoas.removerFuncionario(cpf);
-			}
-		}
-		
-		public Cliente procurarCliente(String cpf) throws PessoaNaoCadastradaExeception, CPFInvalidoException {
-			if(cpf.length() != 11) {
-				throw new CPFInvalidoException();
-			}
-			else {
-				return this.pessoas.procurarCliente(cpf);
-			}
-		}
-		
-		public Funcionario procurarFuncionario(String cpf) throws PessoaNaoCadastradaExeception, CPFInvalidoException {
-			if(cpf.length() != 11) {
-				throw new CPFInvalidoException();
-			}
-			else {
-				return this.pessoas.procurarFuncionario(cpf);
-			}
-		}
-		
-		public void atualizar(Funcionario pessoa) throws PessoaNaoCadastradaExeception{
-			this.pessoas.atualizar(pessoa);
-		}
-		
-		public void atualizar(Cliente pessoa) throws PessoaNaoCadastradaExeception{
-			this.pessoas.atualizar(pessoa);
-		}
+	}
 
-		public boolean getGerenteState() {
-			return this.pessoas.getGerenteState();
+	public void inserir(Funcionario pessoa) throws PessoaJaCadastradaException, PessoaNaoCadastradaExeception,
+			GerenteJaExistenteException, CPFInvalidoException {
+		if (pessoa.getCpf().length() != 11) {
+			throw new CPFInvalidoException();
+		} else if (this.pessoas.getGerenteState()) {
+			throw new GerenteJaExistenteException();
+		} else {
+			this.pessoas.inserir(pessoa);
 		}
-		
-		public boolean existe(Cliente pessoa) throws PessoaNaoCadastradaExeception{
-			return this.pessoas.existe(pessoa);
+	}
+
+	public void removerCliente(String cpf) throws PessoaNaoCadastradaExeception, CPFInvalidoException {
+		if (cpf.length() != 11) {
+			throw new CPFInvalidoException();
+		} else {
+			this.pessoas.removerCliente(cpf);
 		}
-		
-		public boolean existe(Funcionario pessoa) throws PessoaNaoCadastradaExeception{
-			return this.pessoas.existe(pessoa);
+	}
+
+	public void removerFuncionario(String cpf) throws PessoaNaoCadastradaExeception, CPFInvalidoException {
+		if (cpf.length() != 11) {
+			throw new CPFInvalidoException();
+		} else {
+			this.pessoas.removerFuncionario(cpf);
 		}
-		
-		
+	}
+
+	public Cliente procurarCliente(String cpf) throws PessoaNaoCadastradaExeception, CPFInvalidoException {
+		if (cpf.length() != 11) {
+			throw new CPFInvalidoException();
+		} else {
+			return this.pessoas.procurarCliente(cpf);
+		}
+	}
+
+	public Funcionario procurarFuncionario(String cpf) throws PessoaNaoCadastradaExeception, CPFInvalidoException {
+		if (cpf.length() != 11) {
+			throw new CPFInvalidoException();
+		} else {
+			return this.pessoas.procurarFuncionario(cpf);
+		}
+	}
+
+	public void atualizar(Funcionario pessoa) throws PessoaNaoCadastradaExeception {
+		this.pessoas.atualizar(pessoa);
+	}
+
+	public void atualizar(Cliente pessoa) throws PessoaNaoCadastradaExeception {
+		this.pessoas.atualizar(pessoa);
+	}
+
+	public boolean getGerenteState() {
+		return this.pessoas.getGerenteState();
+	}
+
+	public boolean existe(Cliente pessoa) throws PessoaNaoCadastradaExeception {
+		return this.pessoas.existe(pessoa);
+	}
+
+	public boolean existe(Funcionario pessoa) throws PessoaNaoCadastradaExeception {
+		return this.pessoas.existe(pessoa);
+	}
+
 }

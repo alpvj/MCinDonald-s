@@ -28,6 +28,7 @@ public class RepositorioArraySobremesas implements RepositorioSobremesas {
 					for (int j = i; j < (this.arraySobremesas.length - 1); j++) {
 						this.arraySobremesas[j] = this.arraySobremesas[j + 1];
 					}
+					break;
 				}
 			}
 		} else
@@ -35,14 +36,12 @@ public class RepositorioArraySobremesas implements RepositorioSobremesas {
 	}
 
 	public boolean verificarSobremesa(String nome_Sobremesa) {
-		boolean retorno = false;
-
 		for (int i = 0; i < this.arraySobremesas.length; i++) {
+			if (this.arraySobremesas[i] != null)
 			if (this.arraySobremesas[i].getNome().equals(nome_Sobremesa))
-				retorno = true;
+				return true;
 		}
-
-		return retorno;
+		return false;
 	}
 
 	public Sobremesas procurarSobremesa(String nome_Sobremesa) throws SobremesaInexistenteException{
@@ -61,11 +60,12 @@ public class RepositorioArraySobremesas implements RepositorioSobremesas {
 	}
 
 	public void atualizarNomeSobremesa(String nome_Antigo, String nome_Novo) throws SobremesaInexistenteException, SobremesaJaExisteException{
-		if (verificarSobremesa(nome_Novo)) {
+		if (!verificarSobremesa(nome_Novo)) {
 		if (verificarSobremesa(nome_Antigo)) {
 			for (int i = 0; i < this.arraySobremesas.length; i++) {
 				if (this.arraySobremesas[i].getNome().equals(nome_Antigo)) {
 					this.arraySobremesas[i].setNome(nome_Novo);
+					return;
 				}
 			}
 		} else
@@ -79,6 +79,7 @@ public class RepositorioArraySobremesas implements RepositorioSobremesas {
 			for (int i = 0; i < this.arraySobremesas.length; i++) {
 				if (this.arraySobremesas[i].getNome().equals(nome)) {
 					this.arraySobremesas[i].setPreco(preco);
+					return;
 				}
 			}
 		} else
@@ -86,11 +87,13 @@ public class RepositorioArraySobremesas implements RepositorioSobremesas {
 	}
 
 	public void atualizarSobremesa(String nome, Sobremesas sobremesa) throws SobremesaInexistenteException, SobremesaJaExisteException{
-		if (verificarSobremesa(sobremesa.getNome())) {
+		if (!verificarSobremesa(sobremesa.getNome())) {
 		if (verificarSobremesa(nome)) {
 			for (int i = 0; i < this.arraySobremesas.length; i++) {
 				if (this.arraySobremesas[i].getNome().equals(nome)) {
-					this.arraySobremesas[i] = sobremesa;
+					this.arraySobremesas[i].setNome(sobremesa.getNome());
+					this.arraySobremesas[i].setPreco(sobremesa.getPreco());
+					return;
 				}
 			}
 		} else

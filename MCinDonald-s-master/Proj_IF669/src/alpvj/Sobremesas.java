@@ -4,7 +4,7 @@ public class Sobremesas {
 	private String nome;
 	private double preco;
 
-	Sobremesas() {
+	public Sobremesas() {
 		this.nome = null;
 		this.preco = 0;
 	}

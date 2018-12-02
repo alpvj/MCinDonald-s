@@ -4,7 +4,7 @@ public class RepositorioListaSobremesas implements RepositorioSobremesas {
 	private Sobremesas sobremesa;
 	private RepositorioListaSobremesas proximo;
 
-	RepositorioListaSobremesas() {
+	public RepositorioListaSobremesas() {
 		sobremesa = null;
 		proximo = null;
 	}
@@ -60,7 +60,7 @@ public class RepositorioListaSobremesas implements RepositorioSobremesas {
 	}
 
 	public void atualizarNomeSobremesa(String nome_Antigo, String nome_Novo) throws SobremesaInexistenteException, SobremesaJaExisteException{
-		if (verificarSobremesa(nome_Novo)) {
+		if (!verificarSobremesa(nome_Novo)) {
 		if (this.sobremesa != null) {
 			if (this.sobremesa.getNome().equals(nome_Antigo)) {
 				this.sobremesa.setNome(nome_Novo);
@@ -85,10 +85,11 @@ public class RepositorioListaSobremesas implements RepositorioSobremesas {
 	}
 
 	public void atualizarSobremesa(String nome, Sobremesas sobremesa) throws SobremesaInexistenteException, SobremesaJaExisteException{
-		if (verificarSobremesa(sobremesa.getNome())) {
+		if (!verificarSobremesa(sobremesa.getNome())) {
 		if (this.sobremesa != null) {
 			if (this.sobremesa.getNome().equals(nome)) {
-				this.sobremesa = sobremesa;
+				this.sobremesa.setNome(sobremesa.getNome());
+				this.sobremesa.setPreco(sobremesa.getPreco());
 			} else {
 				this.proximo.atualizarSobremesa(nome, sobremesa);
 			}
