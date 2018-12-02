@@ -145,38 +145,38 @@ public class MCin_Donalds {
 
 	// Negocio CafeManha
 
-	public CafeManha procurarCafeManha(String nome_cafemanha) throws CafeDaManhaInexistenteException {
-		return cafeManha.procurarCafeManha(nome_cafemanha);
+	public CafeManha encontrarCafeManha(String nomeDoProduto) throws CafeDaManhaInexistenteException {
+		return cafeManha.encontrarCafeManha(nomeDoProduto);
 	}
 
-	public boolean verificarCafeManha(String nome_cafemanha) {
-		return cafeManha.verificarCafeManha(nome_cafemanha);
+	public boolean checarCafeManha(String nomeDoProduto) {
+		return cafeManha.checarCafeManha(nomeDoProduto);
 	}
 
 	public void adicionarCafeManha(CafeManha cafemanha) throws CafeDaManhaJaExisteException {
 		cafeManha.adicionarCafeManha(cafemanha);
 	}
 
-	public void removerCafeManha(String nome_cafemanha) throws CafeDaManhaInexistenteException {
-		cafeManha.removerCafeManha(nome_cafemanha);
+	public void removerCafeManha(String nomeDoProduto) throws CafeDaManhaInexistenteException {
+		cafeManha.removerCafeManha(nomeDoProduto);
 	}
 
-	public void atualizarNome(String nome_Antigo, String nome_Novo)
+	public void atualizarNome(String nomeDesatualizado, String nomeAtual)
 			throws CafeDaManhaInexistenteException, CafeDaManhaJaExisteException {
-		cafeManha.atualizarNome(nome_Antigo, nome_Novo);
+		cafeManha.atualizarNome(nomeDesatualizado, nomeAtual);
 	}
 
-	public void atualizarPreco(String nome, double preco) throws CafeDaManhaInexistenteException {
-		cafeManha.atualizarPreco(nome, preco);
+	public void atualizarValor(String nomeDoproduto, double valor) throws CafeDaManhaInexistenteException {
+		cafeManha.atualizarValor(nomeDoproduto, valor);
 	}
 
-	public void atualizarCafeManha(String nome, CafeManha cafemanha)
+	public void atualizarCafeManha(String nomeDoproduto, CafeManha cafemanha)
 			throws CafeDaManhaInexistenteException, CafeDaManhaJaExisteException {
-		cafeManha.atualizarCafeManha(nome, cafemanha);
+		cafeManha.atualizarCafeManha(nomeDoproduto, cafemanha);
 	}
 
 	// Negocio Pessoas
-	
+
 	public void inserir(Cliente pessoa)
 			throws PessoaJaCadastradaException, PessoaNaoCadastradaExeception, CPFInvalidoException {
 		if (pessoa.getCpf().length() != 11) {

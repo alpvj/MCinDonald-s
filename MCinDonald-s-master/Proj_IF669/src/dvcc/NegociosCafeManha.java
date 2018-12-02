@@ -1,38 +1,39 @@
 package dvcc;
 
-public class NegociosCafeManha implements RepositorioCafeManha{
+public class NegociosCafeManha implements RepositorioCafeManha {
 	private RepositorioCafeManha repositorio;
 
 	public NegociosCafeManha(RepositorioCafeManha repositorio) {
 		this.repositorio = repositorio;
 	}
 
-	public CafeManha procurarCafeManha(String nome_cafemanha) throws CafeDaManhaInexistenteException{
-		return repositorio.procurarCafeManha(nome_cafemanha);
+	public CafeManha encontrarCafeManha(String nomeDoProduto) throws CafeDaManhaInexistenteException {
+		return repositorio.encontrarCafeManha(nomeDoProduto);
 	}
 
-	public boolean verificarCafeManha(String nome_cafemanha) {
-		return repositorio.verificarCafeManha(nome_cafemanha);
+	public boolean checarCafeManha(String nomeDoProduto) {
+		return repositorio.checarCafeManha(nomeDoProduto);
 	}
 
 	public void adicionarCafeManha(CafeManha cafemanha) throws CafeDaManhaJaExisteException {
 		repositorio.adicionarCafeManha(cafemanha);
 	}
 
-	public void removerCafeManha(String nome_cafemanha) throws CafeDaManhaInexistenteException {
-		repositorio.removerCafeManha(nome_cafemanha);
+	public void removerCafeManha(String nomeDoProduto) throws CafeDaManhaInexistenteException {
+		repositorio.removerCafeManha(nomeDoProduto);
 	}
 
-	public void atualizarNome(String nome_Antigo, String nome_Novo) throws CafeDaManhaInexistenteException, CafeDaManhaJaExisteException {
-		repositorio.atualizarNome(nome_Antigo, nome_Novo);
+	public void atualizarNome(String nomeDesatualizado, String nomeAtual)
+			throws CafeDaManhaInexistenteException, CafeDaManhaJaExisteException {
+		repositorio.atualizarNome(nomeDesatualizado, nomeAtual);
 	}
 
-	public void atualizarPreco(String nome, double preco) throws CafeDaManhaInexistenteException{
-		repositorio.atualizarPreco(nome, preco);
+	public void atualizarValor(String nomeDoproduto, double valor) throws CafeDaManhaInexistenteException {
+		repositorio.atualizarValor(nomeDoproduto, valor);
 	}
 
-	public void atualizarCafeManha(String nome, CafeManha cafemanha) throws CafeDaManhaInexistenteException, CafeDaManhaJaExisteException{
-		repositorio.atualizarCafeManha(nome, cafemanha);
+	public void atualizarCafeManha(String nomeDoproduto, CafeManha cafemanha)
+			throws CafeDaManhaInexistenteException, CafeDaManhaJaExisteException {
+		repositorio.atualizarCafeManha(nomeDoproduto, cafemanha);
 	}
-
 }

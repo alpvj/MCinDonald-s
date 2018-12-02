@@ -1,26 +1,29 @@
 package dvcc;
 
 public class CafeManha {
-	private String nome;
-	private double preco;
 
-	CafeManha(){
+	private String nome;
+	private double valor;
+
+	CafeManha() {
 		this.nome = null;
-		this.preco = 0;
+		this.valor = 0;
 	}
-    public void setPreco(double preco) {
-    	this.preco = preco;
-		
+
+	public void setValor(double valor) {
+		this.valor = valor;
+
 	}
-	public void setNome(String nome){
+
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	public double getPreco() {
-		return this.preco;
-	}
-	public String getNome(){
-		return this.nome;
+
+	public double getValor() {
+		return this.valor;
 	}
 
+	public String getNome() {
+		return this.nome;
+	}
 }
