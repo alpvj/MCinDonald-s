@@ -117,6 +117,6 @@ public class Programa {
 		negArray.atualizarSobremesa(iceCream.getNome(), iceCream2);
 		System.out.println("Acabou a promocao! O nome voltou a ser: " + iceCream.getNome() + ". E o preco: "
 				+ iceCream.getPreco());
-
+		System.out.println("--------------ACABOU O TESTE DAS SOBREMESAS--------------\n");
 	}
 }
