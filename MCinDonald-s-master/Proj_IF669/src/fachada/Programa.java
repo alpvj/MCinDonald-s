@@ -118,5 +118,106 @@ public class Programa {
 		System.out.println("Acabou a promocao! O nome voltou a ser: " + iceCream.getNome() + ". E o preco: "
 				+ iceCream.getPreco());
 		System.out.println("--------------ACABOU O TESTE DAS SOBREMESAS--------------\n");
+
+		// TESTE DOS HAMBURGUERES (mvpn)
+
+		RepositorioHamburguersLista repLista = new RepositorioHamburguersLista();
+		NegociosHamburguers negListaHamburguer = new NegociosHamburguers(repLista);
+
+		RepositorioHamburguersArray repArray = new RepositorioHamburguersArray();
+		NegociosHamburguers negArrayHamburguer = new NegociosHamburguers(repArray);
+
+		// TESTANDO A LISTA
+
+		System.out.println("TESTANDO A LISTA");
+		Hamburguer McFish = new Hamburguer(null, 0);
+		Hamburguer Cheddar = new Hamburguer(null, 0);
+		Hamburguer BigMc = new Hamburguer(null, 0);
+
+		McFish.setNome("McFish");
+		McFish.setPreco(10);
+		Cheddar.setNome("Cheddar");
+		Cheddar.setPreco(15);
+		BigMc.setNome("BigMc");
+		BigMc.setPreco(20);
+
+		System.out.println("Inserindo os hamburgueres no repositorio!\n");
+		negListaHamburguer.inserir(McFish);
+		negListaHamburguer.inserir(Cheddar);
+		negListaHamburguer.inserir(BigMc);
+
+		if (negListaHamburguer.checarHamburguer(McFish.getNome())
+				&& negListaHamburguer.checarHamburguer(Cheddar.getNome())
+				&& negListaHamburguer.checarHamburguer(BigMc.getNome())) {
+			System.out.println(
+					"O hamburguer " + negListaHamburguer.procurar("McFish").getNome() + " foi adicionado com sucesso!");
+			System.out.println("O hamburguer " + negListaHamburguer.procurar("Cheddar").getNome()
+					+ " foi adicionado com sucesso!");
+			System.out.println("O hamburguer " + negListaHamburguer.procurar("BigMc").getNome()
+					+ " foi adicionado com sucesso!\n");
+		}
+
+		System.out.println("Removendo hamburgueres!\n");
+		negListaHamburguer.remover("McFish");
+		if (!negListaHamburguer.checarHamburguer("McFish")) {
+			System.out.println("O hamburguer foi removido!\n");
+		} else {
+			System.out.println("O hamburguer nao foi removido!\n");
+		}
+
+		System.out.println("Atualizando um hamburguer!\n");
+		String nomeAuxLista = negListaHamburguer.procurar("Cheddar").getNome();
+		double precoAuxLista = negListaHamburguer.procurar("Cheddar").getPreco();
+		negListaHamburguer.atualizar("Cheddar", "McCrispy", 100.75);
+		System.out.println("O nome do hamburguer era " + nomeAuxLista + " e o preco era " + precoAuxLista
+				+ ". Agora, o nome foi atualizado para " + negListaHamburguer.procurar("McCrispy").getNome()
+				+ " e o preco para " + negListaHamburguer.procurar("McCrispy").getPreco() + ("!\n"));
+
+		// TESTANDO O ARRAY
+
+		System.out.println("TESTANDO O ARRAY");
+		Hamburguer Veggie = new Hamburguer(null, 0);
+		Hamburguer Quarteirao = new Hamburguer(null, 0);
+		Hamburguer McChicken = new Hamburguer(null, 0);
+
+		Veggie.setNome("McVeggie");
+		Veggie.setPreco(22.5);
+		Quarteirao.setNome("Quarteirao");
+		Quarteirao.setPreco(17);
+		McChicken.setNome("McChicken");
+		McChicken.setPreco(14.99);
+
+		System.out.println("Inserindo os hamburgueres no repositorio!\n");
+		negArrayHamburguer.inserir(Veggie);
+		negArrayHamburguer.inserir(Quarteirao);
+		negArrayHamburguer.inserir(McChicken);
+
+		if (negArrayHamburguer.checarHamburguer(Veggie.getNome())
+				&& negArrayHamburguer.checarHamburguer(Quarteirao.getNome())
+				&& negArrayHamburguer.checarHamburguer(McChicken.getNome())) {
+			System.out.println("O hamburguer " + negArrayHamburguer.procurar("McVeggie").getNome()
+					+ " foi adicionado com sucesso!");
+			System.out.println("O hamburguer " + negArrayHamburguer.procurar("Quarteirao").getNome()
+					+ " foi adicionado com sucesso!");
+			System.out.println("O hamburguer " + negArrayHamburguer.procurar("McChicken").getNome()
+					+ " foi adicionado com sucesso!\n");
+		}
+
+		System.out.println("Removendo hamburgueres!\n");
+		negArrayHamburguer.remover("McVeggie");
+		if (!negArrayHamburguer.checarHamburguer("McVeggie")) {
+			System.out.println("O hamburguer foi removido!\n");
+		} else {
+			System.out.println("O hamburguer nao foi removido!\n");
+		}
+
+		System.out.println("Atualizando um hamburguer!\n");
+		String nomeAuxArray = negArrayHamburguer.procurar("McChicken").getNome();
+		double precoAuxArray = negArrayHamburguer.procurar("McChicken").getPreco();
+		negArrayHamburguer.atualizar("McChicken", "DiretoriaLixo", 33.99);
+		System.out.println("O nome do hamburguer era " + nomeAuxArray + " e o preco era " + precoAuxArray
+				+ ". Agora, o nome foi atualizado para " + negArrayHamburguer.procurar("DiretoriaLixo").getNome()
+				+ " e o preco para " + negArrayHamburguer.procurar("DiretoriaLixo").getPreco() + ("!\n"));
+		System.out.println("FIM DOS TESTE DOS HAMBURGUERES");
 	}
 }
