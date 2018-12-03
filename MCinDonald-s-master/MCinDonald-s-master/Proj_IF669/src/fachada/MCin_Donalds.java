@@ -101,43 +101,43 @@ public class MCin_Donalds {
 
 	// Negocio Bebidas
 
-	public void inserir(Bebidas bebida) throws BebidaExistenteException {
+	public void inserirBebidas(Bebidas bebida) throws BebidaExistenteException {
 
-		if (!bebidas.existe(bebida)) {
-			bebidas.inserir(bebida);
+		if (!bebidas.existeBebidas(bebida)) {
+			bebidas.inserirBebidas(bebida);
 		} else {
 			throw new BebidaExistenteException();
 		}
 	}
 
-	public void remover(Bebidas bebida) throws BebidaInexistenteException {
+	public void removerBebidas(Bebidas bebida) throws BebidaInexistenteException {
 
-		if (bebidas.existe(bebida)) {
-			bebidas.remover(bebida);
+		if (bebidas.existeBebidas(bebida)) {
+			bebidas.removerBebidas(bebida);
 		} else {
 			throw new BebidaInexistenteException();
 		}
 	}
 
-	public Bebidas procurar(Bebidas bebida) throws BebidaInexistenteException {
-		if (bebidas.existe(bebida)) {
-			return bebidas.procurar(bebida);
+	public Bebidas procurarBebidas(Bebidas bebida) throws BebidaInexistenteException {
+		if (bebidas.existeBebidas(bebida)) {
+			return bebidas.procurarBebidas(bebida);
 		} else {
 			throw new BebidaInexistenteException();
 		}
 	}
 
-	public boolean existe(Bebidas bebida) {
-		if (bebidas.existe(bebida)) {
+	public boolean existeBebidas(Bebidas bebida) {
+		if (bebidas.existeBebidas(bebida)) {
 			return true;
 		} else {
 			return false;
 		}
 	}
 
-	public void atualizar(Bebidas bebida) throws BebidaInexistenteException {
-		if (bebidas.existe(bebida)) {
-			bebidas.atualizar(bebida);
+	public void atualizarBebidas(Bebidas bebida) throws BebidaInexistenteException {
+		if (bebidas.existeBebidas(bebida)) {
+			bebidas.atualizarBebidas(bebida);
 		} else {
 			throw new BebidaInexistenteException();
 		}

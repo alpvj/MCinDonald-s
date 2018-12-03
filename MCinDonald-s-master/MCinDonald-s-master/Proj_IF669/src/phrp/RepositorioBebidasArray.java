@@ -7,7 +7,7 @@ public class RepositorioBebidasArray implements RepositorioBebidas {
 		this.arrayBebidas = new Bebidas[200];
 	}
 
-	public void inserir(Bebidas bebida) {
+	public void inserirBebidas(Bebidas bebida) {
 
 		int index = 0;
 		boolean pausa = false;
@@ -25,7 +25,7 @@ public class RepositorioBebidasArray implements RepositorioBebidas {
 		this.arrayBebidas[index] = bebida;
 	}
 
-	public void remover(Bebidas bebida) {
+	public void removerBebidas(Bebidas bebida) {
 
 		int index = 0;
 		boolean pausa = false;
@@ -43,7 +43,7 @@ public class RepositorioBebidasArray implements RepositorioBebidas {
 
 	}
 
-	public Bebidas procurar(Bebidas bebida) {
+	public Bebidas procurarBebidas(Bebidas bebida) {
 
 		for (int i = 0; i < arrayBebidas.length; i++) {
 
@@ -56,7 +56,7 @@ public class RepositorioBebidasArray implements RepositorioBebidas {
 		return null;
 	}
 
-	public boolean existe(Bebidas bebida) {
+	public boolean existeBebidas(Bebidas bebida) {
 
 		for (int i = 0; i < arrayBebidas.length; i++) {
 
@@ -69,7 +69,7 @@ public class RepositorioBebidasArray implements RepositorioBebidas {
 		return false;
 	}
 
-	public void atualizar(Bebidas bebida) {
+	public void atualizarBebidas(Bebidas bebida) {
 
 		boolean parada = false;
 		for (int i = 0; i < arrayBebidas.length && !parada; i++) {
