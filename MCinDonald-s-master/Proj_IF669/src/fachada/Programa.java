@@ -219,5 +219,182 @@ public class Programa {
 				+ ". Agora, o nome foi atualizado para " + negArrayHamburguer.procurar("DiretoriaLixo").getNome()
 				+ " e o preco para " + negArrayHamburguer.procurar("DiretoriaLixo").getPreco() + ("!\n"));
 		System.out.println("FIM DOS TESTE DOS HAMBURGUERES");
+		
+		// Testanto as Pessoas (jbmn2)
+
+				RepositorioPessoasLista repositorioPessoasLista = new RepositorioPessoasLista();
+				NegociosPessoas negPessoasLista = new NegociosPessoas(repositorioPessoasLista);
+
+				RepositorioPessoasArray repositorioPessoasArray = new RepositorioPessoasArray();
+				NegociosPessoas negPessoasArray = new NegociosPessoas(repositorioPessoasArray);
+
+				// LISTA //
+				System.out.println("--------------COMECANDO O TESTE DAS PESSOAS--------------");
+				System.out.println("Repositorio em Lista:");
+				
+				Cliente cliente1 = new Cliente("", "", 0, "");
+				cliente1.setNome("Jose Bezerra");
+				cliente1.setIdade(18);
+				cliente1.setCpf("13384332458");
+				cliente1.setPratoPreferido("Big Mac");
+
+				Cliente cliente2 = new Cliente("", "", 0, "");
+				cliente2.setNome("Pedro Ribeiro");
+				cliente2.setIdade(24);
+				cliente2.setCpf("00000000002");
+				cliente2.setPratoPreferido("Angus Bacon");
+				
+				Funcionario funcionario1 = new Funcionario("", "", 0, 0, "", "", "", "");
+				funcionario1.setNome("Andre Vasconcelos");
+				funcionario1.setIdade(19);
+				funcionario1.setCpf("00000000001");
+				funcionario1.setAntecedentesCriminais("NENHUM");
+				funcionario1.setCargo("Gerente");
+				funcionario1.setEndereco("R. Visconde de Jequitinhonha 1140");
+				funcionario1.setEstadoCivil("NAMORANDO");
+				
+				Funcionario funcionario2 = new Funcionario("", "", 0, 0, "", "", "", "");
+				funcionario2.setNome("Marcos Pryston");
+				funcionario2.setIdade(18);
+				funcionario2.setCpf("00000000003");
+				funcionario2.setAntecedentesCriminais("NENHUM");
+				funcionario2.setCargo("Caixa");
+				funcionario2.setEndereco("R. Visconde de Jequitinhonha 0001");
+				funcionario2.setEstadoCivil("NAMORANDO");
+				
+
+				negPessoasLista.inserir(cliente1);
+				negPessoasLista.inserir(cliente2);
+				negPessoasLista.inserir(funcionario1);
+				negPessoasLista.inserir(funcionario2);
+				
+				if (negPessoasLista.existeCliente(cliente1.getCpf()) 
+					&& negPessoasLista.existeCliente(cliente2.getCpf())
+						&& negPessoasLista.existeFuncionario(funcionario1.getCpf())
+						&& negPessoasLista.existeFuncionario(funcionario2.getCpf())) {
+					System.out.println("Cliente " + cliente1.getNome() + " adicionado com sucesso!");
+					System.out.println("Cliente " + cliente2.getNome() + " adicionado com sucesso!");
+					System.out.println("Funcionario " + funcionario1.getNome() + " adicionado com sucesso!");
+					System.out.println("Funcionario " + funcionario2.getNome() + " adicionado com sucesso!\n");
+				}
+
+				negPessoasLista.removerCliente(cliente1.getCpf());
+				negPessoasLista.removerFuncionario(funcionario2.getCpf());
+				
+				if (!negPessoasLista.existeCliente(cliente1.getCpf()))
+					System.out.println("Cliente " +cliente1.getNome()+" removido com sucesso!\n");
+				else
+					System.out.println("Cliente " +cliente1.getNome()+" ainda existe no repositorio!\n");
+
+				
+				if (!negPessoasLista.existeFuncionario(funcionario2.getCpf()))
+					System.out.println("Funcionario " +funcionario2.getNome()+" removido com sucesso!\n");
+				else
+					System.out.println("Funcionario " +funcionario2.getNome()+" ainda existe no repositorio!\n");
+				
+				
+				System.out.println("O prato preferido de "+ cliente2.getNome() +" e "+cliente2.getPratoPreferido());
+
+				Cliente cliente2Atualizado = new Cliente(cliente2.getCpf(),cliente2.getNome(),cliente2.getIdade(), "Angus Deluxe");
+				
+				negPessoasLista.atualizar(cliente2Atualizado);
+				
+				System.out.println("O prato preferido de "+ cliente2.getNome() +" e "+cliente2.getPratoPreferido());
+
+				System.out.println("");
+				
+				System.out.println("O cargo de "+ funcionario1.getNome() +" e "+funcionario1.getCargo());
+				
+				Funcionario funcionario1Atualizado = new Funcionario(funcionario1.getCpf(), funcionario1.getNome(), funcionario1.getIdade(), funcionario1.getRg(), "Servicos Gerais", funcionario1.getEndereco(), funcionario1.getEstadoCivil(), funcionario1.getAntecedentesCriminais());
+				
+				negPessoasLista.atualizar(funcionario1Atualizado);
+				
+				System.out.println("O cargo de "+ funcionario1.getNome() +" e "+funcionario1.getCargo());
+				
+				
+				
+				// ARRAY //
+				System.out.println("\nRepostorio em Array:\n");
+				Cliente cliente1Array = new Cliente("", "", 0, "");
+				cliente1Array.setNome("Jose Bezerra");
+				cliente1Array.setIdade(18);
+				cliente1Array.setCpf("13384332458");
+				cliente1Array.setPratoPreferido("Big Mac");
+				
+				Cliente cliente2Array = new Cliente("", "", 0, "");
+				cliente2Array.setNome("Pedro Ribeiro");
+				cliente2Array.setIdade(24);
+				cliente2Array.setCpf("00000000001");
+				cliente2Array.setPratoPreferido("Angus Bacon");
+				
+				Funcionario funcionario1Array = new Funcionario("", "", 0, 0, "", "", "", "");
+				funcionario1Array.setNome("Andre Vasconcelos");
+				funcionario1Array.setIdade(19);
+				funcionario1Array.setCpf("00000000002");
+				funcionario1Array.setAntecedentesCriminais("NENHUM");
+				funcionario1Array.setCargo("Gerente");
+				funcionario1Array.setEndereco("R. Visconde de Jequitinhonha 1140");
+				funcionario1Array.setEstadoCivil("NAMORANDO");
+				
+				Funcionario funcionario2Array = new Funcionario("", "", 0, 0, "", "", "", "");
+				funcionario2Array.setNome("Marcos Pryston");
+				funcionario2Array.setIdade(18);
+				funcionario2Array.setCpf("00000000003");
+				funcionario2Array.setAntecedentesCriminais("NENHUM");
+				funcionario2Array.setCargo("Caixa");
+				funcionario2Array.setEndereco("R. Visconde de Jequitinhonha 0001");
+				funcionario2Array.setEstadoCivil("NAMORANDO");
+				
+				negPessoasArray.inserir(cliente1Array);
+				negPessoasArray.inserir(cliente2Array);
+				negPessoasArray.inserir(funcionario1Array);
+				negPessoasArray.inserir(funcionario2Array);
+				
+				if (negPessoasArray.existeCliente(cliente1Array.getCpf()) 
+					&& negPessoasArray.existeCliente(cliente2Array.getCpf())
+						&& negPessoasArray.existeFuncionario(funcionario1Array.getCpf())
+						&& negPessoasArray.existeFuncionario(funcionario2Array.getCpf())) {
+					System.out.println("Cliente " + cliente1Array.getNome() + " adicionado com sucesso!");
+					System.out.println("Cliente " + cliente2Array.getNome() + " adicionado com sucesso!");
+					System.out.println("Funcionario " + funcionario1Array.getNome() + " adicionado com sucesso!");
+					System.out.println("Funcionario " + funcionario2Array.getNome() + " adicionado com sucesso!\n");
+				}
+
+				negPessoasArray.removerCliente(cliente1Array.getCpf());
+				negPessoasArray.removerFuncionario(funcionario2Array.getCpf());
+				
+				if (!negPessoasArray.existeCliente(cliente1Array.getCpf()))
+					System.out.println("Cliente " +cliente1Array.getNome()+" removido com sucesso!\n");
+				else
+					System.out.println("Cliente " +cliente1Array.getNome()+" ainda existe no repositorio!\n");
+
+				
+				if (!negPessoasArray.existeFuncionario(funcionario2Array.getCpf()))
+					System.out.println("Funcionario " +funcionario2Array.getNome()+" removido com sucesso!\n");
+				else
+					System.out.println("Funcionario " +funcionario2Array.getNome()+" ainda existe no repositorio!\n");
+				
+				
+				System.out.println("O prato preferido de "+ cliente2Array.getNome() +" e "+cliente2Array.getPratoPreferido());
+
+				Cliente cliente2AtualizadoArray = new Cliente(cliente2Array.getCpf(),cliente2Array.getNome(),cliente2Array.getIdade(), "Angus Deluxe");
+				
+				negPessoasArray.atualizar(cliente2AtualizadoArray);
+				
+				System.out.println("O prato preferido de "+ cliente2Array.getNome() +" e "+cliente2Array.getPratoPreferido());
+
+				System.out.println("");
+				
+				System.out.println("O cargo de "+ funcionario1Array.getNome() +" e "+funcionario1Array.getCargo());
+				
+				Funcionario funcionario1AtualizadoArray = new Funcionario(funcionario1Array.getCpf(), funcionario1Array.getNome(), funcionario1Array.getIdade(), funcionario1Array.getRg(), "Servicos Gerais", funcionario1Array.getEndereco(), funcionario1Array.getEstadoCivil(), funcionario1Array.getAntecedentesCriminais());
+				
+				negPessoasArray.atualizar(funcionario1AtualizadoArray);
+				
+				System.out.println("O cargo de "+ funcionario1.getNome() +" e "+funcionario1.getCargo());
+				
+				
+				System.out.println("--------------ACABOU O TESTE DAS PESSOAS--------------\n");
+				
 	}
 }

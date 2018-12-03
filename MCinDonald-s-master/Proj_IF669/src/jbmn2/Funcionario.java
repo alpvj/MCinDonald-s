@@ -36,4 +36,25 @@ public class Funcionario extends Pessoas{
 		return cargo;
 	}
 
+	
+	public void setRg(int Rg) {
+		this.rg = Rg;
+	}
+	
+	public void setEndereco(String Endereco) {
+		this.endereco = Endereco;
+	}
+	
+	public void setEstadoCivil(String EstadoCivil) {
+		this.estadoCivil = EstadoCivil;
+	}
+	
+	public void setAntecedentesCriminais(String AntecedentesCriminais) {
+		this.antecedentesCriminais = AntecedentesCriminais;
+	}
+	
+	public void setCargo(String Cargo) {
+		this.cargo = Cargo;
+	}
+	
 }

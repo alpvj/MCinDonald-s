@@ -70,7 +70,10 @@ public class RepositorioPessoasLista implements RepositorioPessoas{
 		String cpfPessoa = pessoa.getCpf();
 		if(this.proximo != null) {
 			if(this.valor.getCpf().equals(cpfPessoa)) {
-				this.valor = pessoa;
+				this.valor.setNome(pessoa.getNome());
+				this.valor.setIdade(pessoa.getIdade());
+				this.valor.setCpf(pessoa.getCpf());
+				((Cliente) this.valor).setPratoPreferido(pessoa.getPratoPreferido());
 			}
 			else {
 				this.proximo.atualizar(pessoa);
@@ -133,7 +136,14 @@ public class RepositorioPessoasLista implements RepositorioPessoas{
 		String cpfPessoa = pessoa.getCpf();
 		if(this.proximo != null) {
 			if(this.valor.getCpf().equals(cpfPessoa)) {
-				this.valor = pessoa;
+				this.valor.setNome(pessoa.getNome());
+				this.valor.setIdade(pessoa.getIdade());
+				this.valor.setCpf(pessoa.getCpf());
+				((Funcionario) this.valor).setAntecedentesCriminais(pessoa.getAntecedentesCriminais());
+				((Funcionario) this.valor).setCargo(pessoa.getCargo());
+				((Funcionario) this.valor).setEndereco(pessoa.getEndereco());
+				((Funcionario) this.valor).setEstadoCivil(pessoa.getEstadoCivil());
+				((Funcionario) this.valor).setRg(pessoa.getRg());
 			}
 			else {
 				this.proximo.atualizar(pessoa);
@@ -171,9 +181,9 @@ public class RepositorioPessoasLista implements RepositorioPessoas{
 	}
 
 	
-	public boolean existe(Cliente pessoa) throws PessoaNaoCadastradaExeception {
+	public boolean existeCliente(String cpf) throws PessoaNaoCadastradaExeception {
 		try {
-			procurarCliente(pessoa.getCpf());
+			procurarCliente(cpf);
 			return true;
 		}
 		catch(PessoaNaoCadastradaExeception e){
@@ -182,9 +192,9 @@ public class RepositorioPessoasLista implements RepositorioPessoas{
 	}
 
 	
-	public boolean existe(Funcionario pessoa) throws PessoaNaoCadastradaExeception {
+	public boolean existeFuncionario(String cpf) throws PessoaNaoCadastradaExeception {
 		try {
-			procurarFuncionario(pessoa.getCpf());
+			procurarFuncionario(cpf);
 			return true;
 		}
 		catch(PessoaNaoCadastradaExeception e){

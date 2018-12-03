@@ -12,6 +12,9 @@ public class Cliente extends Pessoas{
 	public String getPratoPreferido() {
 		return this.pratoPreferido;
 	}
-	
+
+	public void setPratoPreferido(String PratoPreferido) {
+		this.pratoPreferido = PratoPreferido;
+	}
 	
 }

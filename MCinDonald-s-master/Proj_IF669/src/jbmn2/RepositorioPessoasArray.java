@@ -110,6 +110,8 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
 				String cpfPessoa = this.arrayPessoas[i].getCpf();
 				if (cpfPessoa.equals(cpf)) {
 					find = !find;
+					//System.out.println(cpfPessoa);
+					//System.out.println(cpf);
 					pessoaAchada = (Funcionario) this.arrayPessoas[i];
 				}
 			}
@@ -170,9 +172,9 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
 		return this.gerente;
 	}
 
-	public boolean existe(Cliente pessoa) throws PessoaNaoCadastradaExeception {
+	public boolean existeCliente(String cpf) throws PessoaNaoCadastradaExeception {
 		try {
-			procurarCliente(pessoa.getCpf());
+			procurarCliente(cpf);
 			return true;
 		}
 		catch(PessoaNaoCadastradaExeception e){
@@ -181,9 +183,9 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
 	}
 
 	
-	public boolean existe(Funcionario pessoa) throws PessoaNaoCadastradaExeception {
+	public boolean existeFuncionario(String cpf) throws PessoaNaoCadastradaExeception {
 		try {
-			procurarFuncionario(pessoa.getCpf());
+			procurarFuncionario(cpf);
 			return true;
 		}
 		catch(PessoaNaoCadastradaExeception e){

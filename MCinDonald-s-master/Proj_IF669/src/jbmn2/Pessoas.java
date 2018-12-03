@@ -22,6 +22,17 @@ public abstract class Pessoas {
 		return this.cpf;
 	}
 
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 	
 	
 	

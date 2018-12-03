@@ -29,7 +29,7 @@ public class NegociosPessoas  {
 		if(pessoa.getCpf().length() != 11) {
 			throw new CPFInvalidoException();
 		}
-		else if(this.repositorio.getGerenteState()) {
+		else if(this.repositorio.getGerenteState() && pessoa.getCargo().equals("Gerente")) {
 			throw new GerenteJaExistenteException();
 		}
 		else {
@@ -86,11 +86,11 @@ public class NegociosPessoas  {
 		return this.repositorio.getGerenteState();
 	}
 	
-	public boolean existe(Cliente pessoa) throws PessoaNaoCadastradaExeception{
-		return this.repositorio.existe(pessoa);
+	public boolean existeCliente(String cpf) throws PessoaNaoCadastradaExeception{
+		return this.repositorio.existeCliente(cpf);
 	}
 	
-	public boolean existe(Funcionario pessoa) throws PessoaNaoCadastradaExeception{
-		return this.repositorio.existe(pessoa);
+	public boolean existeFuncionario(String cpf) throws PessoaNaoCadastradaExeception{
+		return this.repositorio.existeFuncionario(cpf);
 	}
 }

@@ -241,12 +241,12 @@ public class MCin_Donalds {
 		return this.pessoas.getGerenteState();
 	}
 
-	public boolean existe(Cliente pessoa) throws PessoaNaoCadastradaExeception {
-		return this.pessoas.existe(pessoa);
+	public boolean existeCliente(String cpf) throws PessoaNaoCadastradaExeception {
+		return this.pessoas.existeCliente(cpf);
 	}
 
-	public boolean existe(Funcionario pessoa) throws PessoaNaoCadastradaExeception {
-		return this.pessoas.existe(pessoa);
+	public boolean existeFuncionario(String cpf) throws PessoaNaoCadastradaExeception {
+		return this.pessoas.existeFuncionario(cpf);
 	}
 
 }

@@ -12,8 +12,8 @@ public interface RepositorioPessoas {
 	public void atualizar(Funcionario pessoa) throws PessoaNaoCadastradaExeception;
 	public void removerFuncionario(String cpf) throws PessoaNaoCadastradaExeception;
 	
-	public boolean existe(Cliente pessoa) throws PessoaNaoCadastradaExeception;
-	public boolean existe(Funcionario pessoa) throws PessoaNaoCadastradaExeception;
+	public boolean existeCliente(String cpf) throws PessoaNaoCadastradaExeception;
+	public boolean existeFuncionario(String cpf) throws PessoaNaoCadastradaExeception;
 	
 	public boolean getGerenteState();
 }
